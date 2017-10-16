@@ -1,0 +1,11 @@
+version: '1'
+
+name: 'Examples'
+description: |
+  'Example package'
+release: '17.10.0'
+
+apps:
+  Basic Apps:
+    - 'apps/show_instance_id'
+    - 'apps/multiply_numbers'

@@ -1,0 +1,17 @@
+# stages:
+# ======
+# pre_build:      Execute before build of the package.
+# pre_install:    Before install of the package.
+# post_install:   After install of the package.
+# pre_uninstall:  Before uninstall of the package,
+#                 before files are deleted.
+
+
+# Files or directories to be deployed
+# as a package
+targets:
+  - apps/
+
+# Ignore patterns
+ignore:
+  - '*/__pycache__'
