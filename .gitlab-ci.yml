@@ -1,0 +1,22 @@
+before_script:
+  - echo "Current DIR "$PWD
+
+stages:
+    - build
+
+# Linux (latest-dev)
+# ==================
+x64_build:linux (dev):
+    stage: build
+    environment: development
+    variables:
+        VERSION: "latest-dev"
+    script:
+        - docker run --rm -it -v `pwd`:/home/dpm dicehub/dpm:dev python3 -m dpm build /home/dpm -o /home/dpm
+        - rename 's/\.zip$/_dev.zip/' *zip
+        - rsync -avR *.zip mcubcsro@backup1.foxcloud.net::mcubcsro/public/dice/apps/
+        - rm -rf *.zip
+    only:
+        - dev
+    tags:
+        - dice-builder
