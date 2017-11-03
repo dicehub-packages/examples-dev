@@ -14,7 +14,7 @@ x64_build:linux (dev):
     script:
         - ls
         - docker pull dicehub/dpm:dev
-        - docker run --rm -v ${PWD}:/home/dpm dicehub/dpm:dev python3 -m dpm build /home/dpm -o /home/dpm
+        - docker run --rm -v $PWD:/home/dpm dicehub/dpm:dev python3 -m dpm build /home/dpm -o /home/dpm
         - rename 's/\.zip$/_dev.zip/' *zip
         - rsync -avR *.zip mcubcsro@backup1.foxcloud.net::mcubcsro/public/dice/apps/
         - rm -rf *.zip
