@@ -12,6 +12,7 @@ x64_build:linux (dev):
     variables:
         VERSION: "latest-dev"
     script:
+        - ls
         - docker pull dicehub/dpm:dev
         - docker run --rm -v ${PWD}:/home/dpm dicehub/dpm:dev python3 -m dpm build /home/dpm -o /home/dpm
         - rename 's/\.zip$/_dev.zip/' *zip
