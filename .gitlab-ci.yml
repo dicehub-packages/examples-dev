@@ -20,4 +20,4 @@ x64_build:linux (dev):
     only:
         - dev
     tags:
-        - dicehub-s2-shell
+        - dev-shell-executor-atlantic939
