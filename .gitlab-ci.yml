@@ -12,7 +12,7 @@ x64_build:linux (dev):
     variables:
         VERSION: "latest-dev"
     script:
-        - docker run --rm -it -v `pwd`:/home/dpm dicehub/dpm:dev python3 -m dpm build /home/dpm -o /home/dpm
+        - docker run --rm -v `pwd`:/home/dpm dicehub/dpm:dev python3 -m dpm build /home/dpm -o /home/dpm
         - rename 's/\.zip$/_dev.zip/' *zip
         - rsync -avR *.zip mcubcsro@backup1.foxcloud.net::mcubcsro/public/dice/apps/
         - rm -rf *.zip
