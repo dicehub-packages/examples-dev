@@ -37,6 +37,10 @@ Item {
                 width: parent.width/2 - parent.spacing/2
                 anchors.verticalCenter: parent.verticalCenter
                 selectByMouse: true
+
+                Keys.onReturnPressed: {
+                    multiplyButton.clicked()
+                }
             }
             TextField {
                 id: number2
@@ -45,9 +49,14 @@ Item {
                 width: parent.width/2 - parent.spacing/2
                 anchors.verticalCenter: parent.verticalCenter
                 selectByMouse: true
+
+                Keys.onReturnPressed: {
+                    multiplyButton.clicked()
+                }
             }
         }
         Button {
+            id: multiplyButton
             text: "Multiply"
             onClicked: {
                 app.multiplyNumbers(number1.text, number2.text)
@@ -59,7 +68,14 @@ Item {
             height: 100
             verticalAlignment: Text.AlignVCenter
             font.pixelSize: 20
-            text: "<b>Result:</b> " + app.result
+            text: {
+                if (app.result !== undefined) {
+                    return "<b>Result:</b> " + app.result
+                }
+                else {
+                    return ""
+                }
+            }
         }
     }
 }
